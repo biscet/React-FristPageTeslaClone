@@ -8,9 +8,11 @@ function Section({
   leftBtnText,
   rightBtnText,
   backgroundImg,
+  index,
+  idKey,
 }) {
   return (
-    <Wrap bgImage={backgroundImg}>
+    <Wrap id={idKey} bgImage={backgroundImg}>
       <Fade>
         <ItemText>
           <h1>{title}</h1>
@@ -24,7 +26,7 @@ function Section({
             {rightBtnText && <RightButton>{rightBtnText}</RightButton>}
           </ButtonGroup>
         </Fade>
-        <DownArrow src="/images/down-arrow.svg" />
+        {index === "0" && <DownArrow src="/images/down-arrow.svg" />}
       </Buttons>
     </Wrap>
   )
@@ -43,6 +45,9 @@ const Wrap = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  scroll-snap-align: start;
+  animation-name: Fade;
+  animation-duration: 1s;
 `
 const ItemText = styled.div`
   padding-top: 15vh;

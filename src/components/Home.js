@@ -11,6 +11,8 @@ function Home() {
         backgroundImg="model-s.jpg"
         leftBtnText="Custom Order"
         rightBtnText="Existing Inventory"
+        index="0"
+        idKey="Model-S"
       />
       <Section
         title="Model Y"
@@ -18,6 +20,8 @@ function Home() {
         backgroundImg="model-y.jpg"
         leftBtnText="Custom Order"
         rightBtnText="Existing Inventory"
+        index="1"
+        idKey="Model-Y"
       />
       <Section
         title="Model 3"
@@ -25,6 +29,8 @@ function Home() {
         backgroundImg="model-3.jpg"
         leftBtnText="Custom Order"
         rightBtnText="Existing Inventory"
+        index="2"
+        idKey="Model-3"
       />
       <Section
         title="Model X"
@@ -32,6 +38,8 @@ function Home() {
         backgroundImg="model-x.jpg"
         leftBtnText="Custom Order"
         rightBtnText="Existing Inventory"
+        index="3"
+        idKey="Model-X"
       />
       <Section
         title="Lowest Cost Solar Panels in America"
@@ -39,6 +47,8 @@ function Home() {
         backgroundImg="solar-panel.jpg"
         leftBtnText="Order Now"
         rightBtnText="Learn More"
+        index="4"
+        idKey="Solar-Panel"
       />
       <Section
         title="Solar for New Roofs"
@@ -46,12 +56,16 @@ function Home() {
         backgroundImg="solar-roof.jpg"
         leftBtnText="Order Now"
         rightBtnText="Learn More"
+        index="5"
+        idKey="Solar-Roof"
       />
       <Section
         title="Accessories"
         description=""
         backgroundImg="accessories.jpg"
         leftBtnText="Shop Now"
+        index="6"
+        idKey="Accessories"
       />
     </Container>
   )
@@ -61,4 +75,7 @@ export default Home
 
 const Container = styled.div`
   height: 100vh;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  overflow-x: hidden;
 `

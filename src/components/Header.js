@@ -1,14 +1,14 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import MenuIcon from "@material-ui/icons/Menu"
 import CloseIcon from "@material-ui/icons/Close"
 import { selectCars } from "../features/car/carSlice"
 import { useSelector } from "react-redux"
+import { useWindowScroll } from "react-use"
 
 function Header() {
   const [burgerStatus, setBurgerStatus] = useState(false)
   const cars = useSelector(selectCars)
-  console.log(cars)
 
   return (
     <Container>
@@ -24,8 +24,9 @@ function Header() {
           ))}
       </Menu>
       <RightMenu>
-        <a href="#">Shop</a>
-        <a href="#">Tesla Account</a>
+        <a href="#">shop</a>
+        <a href="#">account</a>
+
         <CustomMenu
           onClick={() => {
             setBurgerStatus(true)
@@ -46,22 +47,6 @@ function Header() {
               <a href="#">{car}</a>
             </li>
           ))}
-
-        <li>
-          <a href="#">Trade-in</a>
-        </li>
-        <li>
-          <a href="#">Cybertrack</a>
-        </li>
-        <li>
-          <a href="#">Roadster</a>
-        </li>
-        <li>
-          <a href="#">Existing Inventory</a>
-        </li>
-        <li>
-          <a href="#">Existing Inventory</a>
-        </li>
       </BurgerNav>
     </Container>
   )
@@ -93,6 +78,14 @@ const Menu = styled.div`
     text-transform: uppercase;
     padding: 0 10px;
     flex-wrap: no-wrap;
+    padding: 5px 20px;
+    transition: background-color 0.3s;
+    border-radius: 12px;
+  }
+
+  a:hover {
+    background-color: rgba(0, 0, 0, 0.25);
+    transition: background-color 0.3s;
   }
 
   @media (max-width: 768px) {
@@ -109,6 +102,14 @@ const RightMenu = styled.div`
     text-transform: uppercase;
     margin-right: 10px;
     flex-wrap: no-wrap;
+    padding: 5px 20px;
+    transition: background-color 0.3s;
+    border-radius: 12px;
+  }
+
+  a:hover {
+    background-color: rgba(0, 0, 0, 0.25);
+    transition: background-color 0.3s;
   }
 `
 
@@ -130,7 +131,7 @@ const BurgerNav = styled.div`
   flex-direction: column;
   text-align: start;
   transform: ${(props) => (props.show ? "translateX(0)" : "translateX(100%)")};
-  transition: transform 0.2s;
+  transition: transform 0.3s;
 
   li {
     padding: 15px 0;
@@ -138,6 +139,14 @@ const BurgerNav = styled.div`
 
     a {
       font-weight: 600;
+      padding: 5px 20px;
+      transition: background-color 0.3s;
+      border-radius: 12px;
+    }
+
+    a:hover {
+      background-color: rgba(0, 0, 0, 0.25);
+      transition: background-color 0.3s;
     }
   }
 `
